@@ -38,19 +38,23 @@ public class ManageCusBank {
         Assert.assertEquals(manageCusPageTitle, "XYZ Bank");
         Thread.sleep(2*1000);
     }
+    @Given("user login successfully")
+    public void user_login_successfully() throws Throwable {
+        user_is_on_manager_page();
+        verify_manage_page();
+        user_click_on_customer_login_button();
+        select_account();
+        click_on_login_button();
+    }
     @When("user click on Customer Login button")
     public void user_click_on_customer_login_button() throws Throwable{
         driver.findElement(By.xpath("//button[contains(text(),'Customer Login')]")).click();
         Thread.sleep(2*1000);
     }
     @When("select <account>")
-    public void select_account() throws Throwable{
-//        Select account = new Select(driver.findElement(By.id("userSelect")));
-//        account.selectByVisibleText("Ron Weasly");
-//        Thread.sleep(2*1000);
+    public void select_account(){
         driver.findElement(By.id("userSelect")).click();
         driver.findElement(By.xpath("//*[@id=\"userSelect\"]/option[2]")).click();
-        Thread.sleep(2 * 1000);
     }
 
     @And("click on Login button")
@@ -59,12 +63,10 @@ public class ManageCusBank {
         Thread.sleep(2*1000);
     }
 
-
-
     // Deposit amount
 
     @When("user input amount")
-    public void user_input_amount() throws Throwable{
+    public void user_input_amount() throws InterruptedException {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys("4000");
         Thread.sleep(2*1000);
     }
@@ -75,9 +77,8 @@ public class ManageCusBank {
     }
     // leave blank
     @And("user click on Deposit button")
-    public void user_click_on_Deposit_button() throws Throwable{
+    public void user_click_on_Deposit_button(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[3]/button[2]")).click();
-        Thread.sleep(2*1000);
     }
     @And("click on Deposit button")
     public void click_on_Deposit_button() throws InterruptedException {
@@ -87,14 +88,12 @@ public class ManageCusBank {
     // Balance equal zero
 
     @When("input Amount more than Balance")
-    public void input_Amount_more_than_Balance() throws Throwable{
+    public void input_Amount_more_than_Balance(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys("10000");
-        Thread.sleep(2*1000);
     }
     @When("input valid Amount to be Withdrawn")
-    public void input_valid_Amount_to_be_Withdrawn() throws Throwable{
+    public void input_valid_Amount_to_be_Withdrawn(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys("2000");
-        Thread.sleep(2*1000);
     }
 
     @When("^input (.+) invalid Amount to be Withdrawn$")
