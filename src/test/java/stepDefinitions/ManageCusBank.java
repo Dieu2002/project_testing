@@ -6,9 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
@@ -81,9 +79,8 @@ public class ManageCusBank {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[3]/button[2]")).click();
     }
     @And("click on Deposit button")
-    public void click_on_Deposit_button() throws InterruptedException {
+    public void click_on_Deposit_button() {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/button")).click();
-        Thread.sleep(2*1000);
     }
     // Balance equal zero
 
@@ -102,9 +99,8 @@ public class ManageCusBank {
         Thread.sleep(2*2000);
     }
     @When("user click on Withdrawl button")
-    public void user_click_on_Withdrawl_button() throws Throwable{
+    public void user_click_on_Withdrawl_button(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[3]/button[3]")).click();
-        Thread.sleep(2*1000);
     }
     @And("click on Withdrawl button")
     public void click_on_Withdrawl_button() throws Throwable{

@@ -24,9 +24,10 @@ Scenario: User input valid data into amount field on Deposit button
       | data  |
       | -20000 |
       | hai00  |
+      | 0     |
       | ☂нa̘̫͈̭͌͛͌̇̇̍ıt̲̅ɾ๖ۣۜaɱ₦αмɱⓤ๖ۣۜOi̞̟̫̺ͭ̒ͭͣ๖ۣۜNﻮ ąn☂  |
 
-  Scenario: Amount field blank
+  Scenario: Amount field leave blank
     Given user login successfully
     When user click on Deposit button
     And click on Deposit button
@@ -54,8 +55,8 @@ Scenario: User input valid data into amount field on Deposit button
        | data |
        | -4000 |
        | hai00  |
+       | 0       |
        | ☂нa̘̫͈̭͌͛͌̇̇̍ıt̲̅ɾ๖ۣۜaɱ₦αмɱⓤ๖ۣۜOi̞̟̫̺ͭ̒ͭͣ๖ۣۜN |
-
 
   Scenario: Amount to be Withdrawn leave blank
     Given user login successfully
