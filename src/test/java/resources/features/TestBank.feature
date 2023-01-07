@@ -7,12 +7,17 @@ Feature: Manage Customer Account
     And select <account>
     And click on Login button
     Then message is display
-Scenario: User input valid data into amount field on Deposit button
-  Given user login successfully
-  When user click on Deposit button
-  And user input amount
-  And click on Deposit button
-  Then message is display
+
+  Scenario Outline: User input valid data into amount field on Deposit button
+    Given user login successfully
+    When user click on Deposit button
+    And user input valid <data> into amount field on Deposit
+    And click on Deposit button
+    Then message is display
+    Examples:
+      | data  |
+      | 2000 |
+
 
   Scenario Outline: User input invalid data into amount field
     Given user login successfully

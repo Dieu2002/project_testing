@@ -63,10 +63,11 @@ public class ManageCusBank {
 
     // Deposit amount
 
-    @When("user input amount")
-    public void user_input_amount() throws InterruptedException {
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys("4000");
+    @When("^user input valid (.+) into amount field on Deposit$")
+    public void user_input_valid_into_amount_field_on_deposit(String data) throws Throwable {
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys(data);
         Thread.sleep(2*1000);
+
     }
     @When("^input invalid (.+) into amount field$")
     public void input_invalid_into_amount_field(String data) throws Throwable{
