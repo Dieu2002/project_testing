@@ -18,7 +18,6 @@ Feature: Manage Customer Account
       | data  |
       | 2000 |
 
-
   Scenario Outline: User input invalid data into amount field
     Given user login successfully
     When user click on Deposit button
@@ -28,7 +27,7 @@ Feature: Manage Customer Account
     Examples:
       | data  |
       | -20000 |
-      | hai00  |
+      | hai00 |
       | 0     |
       | ☂нa̘̫͈̭͌͛͌̇̇̍ıt̲̅ɾ๖ۣۜaɱ₦αмɱⓤ๖ۣۜOi̞̟̫̺ͭ̒ͭͣ๖ۣۜNﻮ ąn☂  |
 
@@ -37,12 +36,7 @@ Feature: Manage Customer Account
     When user click on Deposit button
     And click on Deposit button
     Then message is display
-  Scenario: Verify that user can not withdrawl in case amount more than Balance
-    Given user login successfully
-    When user click on Withdrawl button
-    And input Amount more than Balance
-    And click on Withdrawl button
-    Then message is display
+
   Scenario: verify that user can withdraw successfully with valid data
     Given user login successfully
     When user click on Withdrawl button
@@ -50,7 +44,14 @@ Feature: Manage Customer Account
     And click on Withdrawl button
     Then message is display
 
-   Scenario Outline: verify that user can not withdraw in case user input invalid data
+  Scenario: Verify that user can not withdrawl in case amount more than Balance
+    Given user login successfully
+    When user click on Withdrawl button
+    And input Amount more than Balance
+    And click on Withdrawl button
+    Then message is display
+
+    Scenario Outline: verify that user can not withdraw in case user input invalid data
      Given user login successfully
      When user click on Withdrawl button
      And input <data> invalid Amount to be Withdrawn
@@ -68,19 +69,26 @@ Feature: Manage Customer Account
     When user click on Withdrawl button
     And click on Withdrawl button
     Then message is display
+
   Scenario: verify that user navigate successfully to the transactions page
     Given user login successfully
     When click on Transactions button
     Then message is display
+
   Scenario: verify that user can reset transactions successfully
     Given user login successfully
     When click on Transactions button
     And click on reset button
     When click on back button
     Then message is display
+
   Scenario: Verify that user can filter data when user click on Date - time text
     Given user login successfully
     When click on Transactions button
     And filter data
     Then message is display
 
+  Scenario: verify that user can log out successfully
+    Given user login successfully
+    When click on Logout button
+    Then message is display

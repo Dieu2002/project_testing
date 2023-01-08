@@ -129,6 +129,11 @@ public class ManageCusBank {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[1]/button[1]")).click();
         Thread.sleep(2*1000);
     }
+    // Logout
+    @When("click on Logout button")
+    public void click_on_Logout_button(){
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/button[2]")).click();
+    }
     @Then("message is display")
     public void message_is_display() throws InterruptedException {
         Thread.sleep(2000);
